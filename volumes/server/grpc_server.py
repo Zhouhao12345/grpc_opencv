@@ -1,3 +1,4 @@
+#!usr/bin/python
 from concurrent import futures
 import time
 
@@ -17,7 +18,7 @@ _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 class Greeter(data_pb2_grpc.GreeterServicer):
 
     def CheckImageFace(self, request, context):
-        img_str = base64.b64decode(request.name)
+        img_str = base64.b64decode(request.imageBuffer)
         buffer = BytesIO(img_str)
         image = Image.open(buffer)
         checked = detect_face(numpy.array(image))

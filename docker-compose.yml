@@ -1,0 +1,6 @@
+grpc_server:
+   build: .
+   volumes:
+     - ./volumes:/usr/src/app/grpc
+   ports:
+     - 50051:50051

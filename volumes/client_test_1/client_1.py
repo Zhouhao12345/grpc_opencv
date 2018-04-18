@@ -15,7 +15,7 @@ def run():
     image.save(buffer, format='JPEG')
     img_str = base64.b64encode(buffer.getvalue())
     response = stub.CheckImageFace(data_pb2.ImageRequest(imageBuffer=img_str))
-    print("Greeter client received: " + response.message)
+    print("Greeter client received: " + response.checkResult)
 
 
 if __name__ == '__main__':
