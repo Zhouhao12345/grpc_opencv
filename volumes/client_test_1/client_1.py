@@ -14,7 +14,7 @@ def run():
     image = Image.open('./3.jpg')
     image.save(buffer, format='JPEG')
     img_str = base64.b64encode(buffer.getvalue())
-    response = stub.SayHello(data_pb2.HelloRequest(name=img_str))
+    response = stub.CheckImageFace(data_pb2.ImageRequest(imageBuffer=img_str))
     print("Greeter client received: " + response.message)
 
 

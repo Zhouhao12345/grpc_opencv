@@ -16,12 +16,12 @@ _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
 class Greeter(data_pb2_grpc.GreeterServicer):
 
-    def SayHello(self, request, context):
+    def CheckImageFace(self, request, context):
         img_str = base64.b64decode(request.name)
         buffer = BytesIO(img_str)
         image = Image.open(buffer)
         checked = detect_face(numpy.array(image))
-        return data_pb2.HelloReply(message=str(checked))
+        return data_pb2.CheckReply(checkResult=str(checked))
 
 
 def serve():
