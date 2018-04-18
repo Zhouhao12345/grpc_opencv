@@ -1,0 +1,15 @@
+syntax = "proto2";
+service Greeter {
+  // Sends a greeting
+  rpc CheckImageFace (ImageRequest) returns (CheckReply) {}
+}
+
+// The request message containing the user's name.
+message ImageRequest {
+  required string imageBuffer = 1;
+}
+
+// The response message containing the greetings
+message CheckReply {
+  required string checkResult = 1;
+}
